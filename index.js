@@ -25,7 +25,10 @@ function randomName(gender) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('madeby').innerText = '© ' + randomName(random(genders)) + ', ' + randomInt(1950, 2020) + '-2020';
+  if(!('madeby' in localStorage)) {
+    localStorage.madeby = '© ' + randomName(random(genders)) + ', ' + randomInt(1950, 2020) + '-2020';
+  }
+  document.getElementById('madeby').innerText = localStorage.madeby;
   var content = document.getElementById('content');
   document.getElementById('btn').addEventListener('click', function() {
     this.innerText = 'Попробовать снова';
