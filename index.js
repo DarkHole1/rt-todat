@@ -21,6 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('btn').addEventListener('click', function() {
     this.innerText = 'Попробовать снова';
     var gender = random(genders);
-    content.innerText = random(names[gender]) + ' ' + random(surnames[gender]) + ', ' + random(descriptions[gender]);
+    content.innerText = random(names[gender]) + ' ' + random(surnames[gender]) + ' — ' + random(descriptions[gender]);
   })
 })

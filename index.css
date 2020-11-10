@@ -28,3 +28,7 @@ button {
   border-radius: 1vmin;
   font-size: 5vmin;
 }
+
+button:focus {
+  outline: none;
+}
