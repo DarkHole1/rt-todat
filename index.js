@@ -12,15 +12,24 @@ var descriptions = [
   ['админ', 'искатель', 'пешка', 'линуксоид', 'шахматист', 'ало ну чо там с деньгами', 'симулякр', 'зевнул мат',  'написал книгу',  'диктатор', 'Изобарный', 'опал']
 ];
 
+function randomInt(min, max) {
+  return min + Math.floor(Math.random() * (max - min));
+}
+
 function random(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+function randomName(gender) {
+  return random(names[gender]) + ' ' + random(surnames[gender]);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('madeby').innerText = '© ' + randomName(random(genders)) + ', ' + randomInt(1950, 2020) + '-2020';
   var content = document.getElementById('content');
   document.getElementById('btn').addEventListener('click', function() {
     this.innerText = 'Попробовать снова';
     var gender = random(genders);
-    content.innerText = random(names[gender]) + ' ' + random(surnames[gender]) + ' — ' + random(descriptions[gender]);
+    content.innerText = randomName(gender) + ' — ' + random(descriptions[gender]);
   })
 })
