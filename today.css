@@ -39,17 +39,3 @@ button:focus {
   bottom: 0;
   font-size: 2vmin;
 }
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#content {
-  font-size: 3vmin;
-}
-
-#content a {
-  color: white;
-}
