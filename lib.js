@@ -38,10 +38,7 @@ function randomGender() {
 }
 
 function randomUniqueNames(n) {
-  return _.zip(_.sampleSize(names, n), _.sampleSize(surnames, n)).map(function(e) {
-    var gender = randomGender();
-    return e[0][gender] + ' ' + e[1][gender];
-  })
+  return _.zip(_.sampleSize(names, n), _.sampleSize(surnames, n));
 }
 
 function randomUniqueStatuses(n) {
