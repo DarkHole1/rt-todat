@@ -37,6 +37,13 @@ function randomGender() {
   return _.sample(genders);
 }
 
+function randomUniqueNames(n) {
+  return _.zip(_.sampleSize(names, n), _.sampleSize(surnames, n)).map(function(e) {
+    var gender = randomGender();
+    return e[0][gender] + ' ' + e[1][gender];
+  })
+}
+
 function madeby() {
   if(!('madeby' in localStorage)) {
     localStorage.madeby = '© ' + randomName(random(genders)) + ', ' + randomInt(1990, 2020) + '-2020';
