@@ -14,24 +14,16 @@ var statuses = [
   'кидает треки', 'записывает PRB']
 ];
 
-function randomInt(min, max) {
-  return min + Math.floor(Math.random() * (max - min));
-}
-
-function random(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
 function randomName(gender) {
-  return random(names[gender]) + ' ' + random(surnames[gender]);
+  return _.sample(names[gender]) + ' ' + _.sample(surnames[gender]);
 }
 
 function randomStatus(gender) {
-  return random(statuses[gender]);
+  return _.sample(statuses[gender]);
 }
 
 function randomGender() {
-  return random(genders);
+  return _.sample(genders);
 }
 
 function madeby() {
