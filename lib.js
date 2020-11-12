@@ -47,7 +47,7 @@ function randomUniqueStatuses(n) {
 
 function madeby() {
   if(!('madeby' in localStorage)) {
-    localStorage.madeby = '© ' + randomName(random(genders)) + ', ' + randomInt(1990, 2020) + '-2020';
+    localStorage.madeby = '© ' + randomName(randomGender()) + ', ' + _.random(1990, 2020) + '-2020';
   }
   return localStorage.madeby;
 }
