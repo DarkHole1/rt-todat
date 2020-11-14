@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var content = document.getElementById('content');
   document.getElementById('btn').addEventListener('click', function() {
     this.innerText = 'Попробовать снова';
-    var gender = randomGender();
-    content.innerText = randomName(gender) + ' — ' + randomStatus(gender);
+    content.innerText = randomF() + ': ' + randomAction() + ' ' + randomSubject();
   })
 })

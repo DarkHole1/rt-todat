@@ -25,6 +25,14 @@ var statuses = [
   ['кидает треки', 'кидает треки'], ['записывает PRB', 'записывает PRB']
 ];
 
+var actions = [
+  'Решал'
+];
+
+var subjects = [
+  'архивы'
+];
+
 function randomName(gender) {
   return _.sample(names)[gender] + ' ' + _.sample(surnames)[gender];
 }
@@ -43,6 +51,19 @@ function randomUniqueNames(n) {
 
 function randomUniqueStatuses(n) {
   return _.sampleSize(statuses, n);
+}
+
+function randomF() {
+  var r = _.random(0, 99);
+  return r < 10 ? 'F0' + r : 'F' + r;
+}
+
+function randomAction() {
+  return _.sample(actions);
+}
+
+function randomSubject() {
+  return _.sample(subjects);
 }
 
 function madeby() {
