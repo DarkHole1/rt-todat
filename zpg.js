@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function startGame() {
   timer = setInterval(function() {
     addmsg(content, randomEvent());
-  }, 1000);
+  }, 30 * 1000);
 }
 
 function loadstate(header, content, type) {
