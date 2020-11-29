@@ -70,6 +70,10 @@ function randomSubject() {
   return _.sample(subjects);
 }
 
+function randomEvent() {
+  return _.sample(['A', 'B', 'C']);
+}
+
 function madeby() {
   if(!('madeby' in localStorage)) {
     localStorage.madeby = '© ' + randomName(randomGender()) + ', ' + _.random(1990, 2020) + '-2020';

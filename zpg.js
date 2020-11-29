@@ -4,26 +4,43 @@ var timer = -1;
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('madeby').innerText = madeby();
 
-  var handler = null;
-
   var content = document.getElementById('content');
   var header = document.getElementById('header');
   var btn = document.getElementById('btn');
   btn.addEventListener('click', function() {
-    try {
-      handler();
-    } catch (e) { }
+    btn.classList.add('hidden');
+    loadstate(header, content, true);
+    startGame();
   });
 
-  loadstate(header, content);
-  timer = setInterval(function() {
-    addmsg(content, 'Событие века');
-  }, 1000);
+  loadstate(header, content, false);
+  // if(true) {
+  if(Date.now() - state.last > 24 * 60 * 60 * 1000) {
+    var ban;
+    if('ban' in state) {
+      ban = state.ban;
+    } else {
+      ban = 'По причине ' + randomF() + ': ' + randomAction() + ' ' + randomSubject();
+      state.ban = ban;
+      savestate();
+    }
+    header.innerText = 'Вас забанили';
+    content.innerText = ban;
+    btn.classList.remove('hidden');
+  } else {
+    startGame();
+  }
 });
 
-function loadstate() {
+function startGame() {
+  timer = setInterval(function() {
+    addmsg(content, randomEvent());
+  }, 1000);
+}
+
+function loadstate(header, content, type) {
   var json = localStorage.getItem('zpg');
-  if(!json) {
+  if(type || !json) {
     state = createstate();
   } else {
     state = JSON.parse(json);
