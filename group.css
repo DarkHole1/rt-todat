@@ -43,3 +43,7 @@ button:focus {
   bottom: 0;
   font-size: 2vmin;
 }
+
+.hidden {
+  display: none;
+}
