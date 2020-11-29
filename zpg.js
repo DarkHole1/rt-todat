@@ -1,3 +1,5 @@
+var state = null;
+
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('madeby').innerText = madeby();
 
@@ -11,4 +13,26 @@ document.addEventListener('DOMContentLoaded', function() {
       handler();
     } catch (e) { }
   })
+
+  loadstate();
 })
+
+function loadstate() {
+  var json = localStorage.getItem('zpg');
+  if(!json) {
+    state = createstate();
+  } else {
+    state = JSON.parse(json);
+  }
+}
+
+function createstate() {
+  return {
+    last: Date.now(),
+    messages: ['Беседа создана']
+  }
+}
+
+function savestate() {
+  localStorage.setItem('zpg', JSON.stringify(state));
+}
